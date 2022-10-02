@@ -7,7 +7,7 @@ export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
   @Query(() => [User], { name: 'users' })
-  findAll() {
+  findAll() { // TODO: Protect this with JWT
     return this.usersService.findAll();
   }
 
