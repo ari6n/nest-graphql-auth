@@ -10,7 +10,7 @@ export class AuthService {
         const user = await this.usersService.findOne(username);
 
         if (user && user.password === password) {   // TODO: make this more secure
-            const {password, ...result} = user;
+            const {password, ...result} = user;     // cutoff password from user structure and put the resulting data into 'result'
             return result;
         }
 
@@ -20,7 +20,7 @@ export class AuthService {
     async login(user: User) {
         return {
             access_token: 'JWT',        // TODO: implement jwt
-            user: user,
+            user,
         }
     }
 }
